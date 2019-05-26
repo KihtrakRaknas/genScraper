@@ -139,7 +139,7 @@ var url2 = 'https://students.sbschools.org/genesis/j_security_check?j_username='
       if(!grades[ClassName])
         grades[ClassName] = {}
 		
-		grades[ClassName]["teacher"] = await page.evaluate(()=>{
+		  grades[ClassName]["teacher"] = await page.evaluate(()=>{
 			  let list = document.getElementsByClassName("list")[0].childNodes[1].childNodes[4].childNodes[5];
 			  if(list)
 			 	 return list.innerText
@@ -155,15 +155,15 @@ var url2 = 'https://students.sbschools.org/genesis/j_security_check?j_username='
       for(var indivMarkingPeriod of markingPeriods){
         if(indivMarkingPeriod){
 			
-		if(!grades[ClassName]["teacher"]){
-	       grades[ClassName]["teacher"] = await page.evaluate(()=>{
-			  let list = document.getElementsByClassName("list")[0].childNodes[1].childNodes[4].childNodes[5];
-			  if(list)
-			 	 return list.innerText
-				else
-				  return null;
-		  });
-		}
+          if(!grades[ClassName]["teacher"]){
+              grades[ClassName]["teacher"] = await page.evaluate(()=>{
+              let list = document.getElementsByClassName("list")[0].childNodes[1].childNodes[4].childNodes[5];
+              if(list)
+              return list.innerText
+              else
+                return null;
+            });
+          }
 			
             await page.evaluate((indivMP) => {
 				
