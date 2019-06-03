@@ -30,6 +30,7 @@ async function scrapeCurrentClassGrades(page){
         assignData["ME"] = node.childNodes[13].innerText.trim()
         assignData["MP3"] = node.childNodes[17].innerText.trim()
         assignData["MP4"] = node.childNodes[19].innerText.trim()
+        assignData["FE"] = node.childNodes[21].innerText.trim()
 		
 		if(!assignData["MP1"])
 			delete assignData["MP1"]
@@ -40,7 +41,9 @@ async function scrapeCurrentClassGrades(page){
 		if(!assignData["MP3"])
 			delete assignData["MP3"]
 		if(!assignData["MP4"])
-			delete assignData["MP4"]
+      delete assignData["MP4"]
+    if(!assignData["FE"])
+			delete assignData["FE"]
         
         assignData["Name"] = node.childNodes[1].innerText;
         assignments.push(assignData);
