@@ -1,0 +1,25 @@
+{
+  "name": "genscraper",
+  "version": "1.0.0",
+  "description": "Core functionality allowing genesis grade scraping",
+  "main": "server.js",
+  "dependencies": {
+    "cheerio": "^1.0.0-rc.3",
+    "puppeteer": "^1.17.0"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/KihtrakRaknas/genScraper.git"
+  },
+  "author": "Kihtrak Raknas",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/KihtrakRaknas/genScraper/issues"
+  },
+  "homepage": "https://github.com/KihtrakRaknas/genScraper#readme"
+}
