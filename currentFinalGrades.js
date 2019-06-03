@@ -24,7 +24,23 @@ async function scrapeCurrentClassGrades(page){
 		assignData["Credits"] = Number(node.childNodes[25].innerText)
         //console.log(node.childNodes);
         //console.log(node.childNodes[3].innerText);
-          assignData["FG"] = //NOT FINISHED
+		console.log(node.childNodes)
+        assignData["MP1"] = node.childNodes[9].innerText.trim()
+        assignData["MP2"] = node.childNodes[11].innerText.trim()
+        assignData["ME"] = node.childNodes[13].innerText.trim()
+        assignData["MP3"] = node.childNodes[17].innerText.trim()
+        assignData["MP4"] = node.childNodes[19].innerText.trim()
+		
+		if(!assignData["MP1"])
+			delete assignData["MP1"]
+		if(!assignData["MP2"])
+			delete assignData["MP2"]
+		if(!assignData["ME"])
+			delete assignData["ME"]
+		if(!assignData["MP3"])
+			delete assignData["MP3"]
+		if(!assignData["MP4"])
+			delete assignData["MP4"]
         
         assignData["Name"] = node.childNodes[1].innerText;
         assignments.push(assignData);
@@ -121,7 +137,7 @@ var url2 = 'https://students.sbschools.org/genesis/j_security_check?j_username='
     const url3 = "https://students.sbschools.org/genesis/parents?tab1=studentdata&tab2=grading&tab3=current&action=form&studentid="+email.split("%40")[0];
     await page.goto(url3, {waitUntil: 'domcontentloaded'});
     
-    let classGrades = await scrapeClassGrades(page)
+    let classGrades = await scrapeCurrentClassGrades(page)
   console.log("Grades gotten for: "+email)
   console.log(classGrades)
     return classGrades
